@@ -1,9 +1,10 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../Home';
 import TweetsScreen from '../Tweets';
 
 export default createAppContainer(
-  createSwitchNavigator({
+  createStackNavigator({
     Home: HomeScreen,
     Tweets: TweetsScreen,
   }),

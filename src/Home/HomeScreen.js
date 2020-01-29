@@ -1,10 +1,33 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Button } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
+  const [username, setUsername] = useState('');
+
+  const handleSubmit = () => {
+    navigation.navigate('Tweets', { username });
+  };
+
   return (
     <View>
-      <Text>Home</Text>
+      <TextInput
+        autoCapitalize="none"
+        placeholder="Enter your name"
+        onChangeText={(name) => setUsername(name)}
+        value={username}
+      />
+      <Button
+        title="Start tweeting!"
+        onPress={handleSubmit}
+      />
     </View>
   );
 }
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

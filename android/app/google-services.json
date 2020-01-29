@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "969844766220",
+    "firebase_url": "https://twitterer-ddbbd.firebaseio.com",
+    "project_id": "twitterer-ddbbd",
+    "storage_bucket": "twitterer-ddbbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969844766220:android:196853733d82733e886029",
+        "android_client_info": {
+          "package_name": "com.twitterer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969844766220-vicgnfi6u02m2ughltb0v5tguf48qsjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYPkZagqgojTumv9Qt7i3gpA-J5B5gLsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969844766220-vicgnfi6u02m2ughltb0v5tguf48qsjc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

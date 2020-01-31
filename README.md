@@ -20,10 +20,19 @@ Important tools you will use:
 - Visual Studio Code: You can use any editor you want, but VS Code is what most of us at LA Blueprint use and contains many features that will improve your workflow.
 - Git: Practice version control by commiting small diffs and commiting often.
 
-## Set up your environment
+## Get started
+
+### Set up your environment
 
 Follow the offical React Native guide: https://facebook.github.io/react-native/docs/getting-started
 - Choose React Native CLI instead of Expo CLI
+
+### Get started with React Native
+
+Finish the intro React course on codecademy: https://www.codecademy.com/learn/react-101
+  - This is not React Native, but the concepts will be the same
+  
+Then read/skim the official tutorial to learn the specifics of React Native: https://facebook.github.io/react-native/docs/tutorial
 
 ## Useful links
 

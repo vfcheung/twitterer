@@ -11,17 +11,22 @@ export default function HomeScreen({ navigation }) {
   };
 
   return (
-    <View>
-      <TextInput
-        autoCapitalize="none"
-        placeholder="Enter your name"
-        onChangeText={(name) => setUsername(name)}
-        value={username}
-      />
-      <Button
-        title="Start tweeting!"
-        onPress={handleSubmit}
-      />
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <TextInput
+          autoFocus
+          autoCapitalize="none"
+          placeholder="Enter your name"
+          onChangeText={(name) => setUsername(name)}
+          value={username}
+        />
+      </View>
+      <View>
+        <Button
+          title="Start tweeting!"
+          onPress={handleSubmit}
+        />
+      </View>
     </View>
   );
 }

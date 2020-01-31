@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Text, Button, View, StyleSheet,
 } from 'react-native';
@@ -24,39 +24,37 @@ export default function TweetsScreen({ navigation }) {
   const [errorMessage, setErrorMessage] = useState(null);
   const [tweetsList, setTweetsList] = useState([]);
 
-  useEffect(() => {
-    firestore().collection('tweets')
-      .get()
-      .then((snapshot) => {
-        const tweets = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        setTweetsList(tweets.sort((a, b) => {
-          const aMillis = a.time.toMillis();
-          const bMillis = b.time.toMillis();
-          if (aMillis > bMillis) {
-            return -1;
-          }
-          if (aMillis < bMillis) {
-            return 1;
-          }
-          return 0;
-        }).map((tweet) => {
-          const date = tweet.time.toDate();
-          return (
-            <Tweet
-              key={tweet.id}
-              name={tweet.username}
-              time={date.toTimeString()}
-              date={date.toDateString()}
-            >
-              {tweet.tweet}
-            </Tweet>
-          );
-        }));
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  });
+  firestore().collection('tweets')
+    .get()
+    .then((snapshot) => {
+      const tweets = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      setTweetsList(tweets.sort((a, b) => {
+        const aMillis = a.time.toMillis();
+        const bMillis = b.time.toMillis();
+        if (aMillis > bMillis) {
+          return -1;
+        }
+        if (aMillis < bMillis) {
+          return 1;
+        }
+        return 0;
+      }).map((tweet) => {
+        const date = tweet.time.toDate();
+        return (
+          <Tweet
+            key={tweet.id}
+            name={tweet.username}
+            time={date.toTimeString()}
+            date={date.toDateString()}
+          >
+            {tweet.tweet}
+          </Tweet>
+        );
+      }));
+    })
+    .catch((error) => {
+      setErrorMessage(error.message);
+    });
 
   const handlePress = () => {
     navigation.navigate('NewTweet', { username });

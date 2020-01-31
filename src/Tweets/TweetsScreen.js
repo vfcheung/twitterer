@@ -15,7 +15,17 @@ export default function TweetsScreen({ navigation }) {
       .get()
       .then((snapshot) => {
         const tweets = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        setTweetsList(tweets.map((tweet) => {
+        setTweetsList(tweets.sort((a, b) => {
+          const aMillis = a.time.toMillis();
+          const bMillis = b.time.toMillis();
+          if (aMillis > bMillis) {
+            return -1;
+          }
+          if (aMillis < bMillis) {
+            return 1;
+          }
+          return 0;
+        }).map((tweet) => {
           const date = tweet.time.toDate();
           return (
             <Tweet

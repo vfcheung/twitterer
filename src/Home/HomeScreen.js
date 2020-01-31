@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-import { View, Button } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  nameContainer: {
+    flex: 1,
+  },
+});
 
 export default function HomeScreen({ navigation }) {
   const [username, setUsername] = useState('');
@@ -11,8 +20,8 @@ export default function HomeScreen({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <View style={styles.nameContainer}>
         <TextInput
           autoFocus
           placeholder="Enter your name"

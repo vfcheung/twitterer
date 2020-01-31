@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import {
-  View, Button, Text, ActivityIndicator,
+  View, Button, Text, ActivityIndicator, StyleSheet,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 import firestore from '@react-native-firebase/firestore';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  tweetContainer: {
+    flex: 1,
+  },
+});
 
 export default function NewTweetScreen({ navigation }) {
   const username = navigation.getParam('username');
@@ -32,12 +41,12 @@ export default function NewTweetScreen({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       {errorMessage && <Text>{errorMessage}</Text>}
-      <View style={{ flex: 1 }}>
+      <View style={styles.tweetContainer}>
         <TextInput
           autoFocus
-          placeholder="Tweet"
+          placeholder="Enter your tweet"
           multiline
           value={tweet}
           onChangeText={(content) => setTweet(content)}
@@ -54,4 +63,8 @@ NewTweetScreen.propTypes = {
     getParam: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+NewTweetScreen.navigationOptions = {
+  title: 'New Tweet',
 };

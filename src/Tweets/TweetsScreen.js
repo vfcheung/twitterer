@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Text, Button, View } from 'react-native';
+import {
+  Text, Button, View, StyleSheet,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native-gesture-handler';
 import firestore from '@react-native-firebase/firestore';
 import Tweet from './Tweet';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  welcomeMessage: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    height: 50,
+    fontSize: 20,
+  },
+});
 
 export default function TweetsScreen({ navigation }) {
   const username = navigation.getParam('username');
@@ -49,9 +63,9 @@ export default function TweetsScreen({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <ScrollView>
-        <Text>{`Welcome, ${username}!`}</Text>
+        <Text style={styles.welcomeMessage}>{`Welcome, ${username}!`}</Text>
         {errorMessage && <Text>{errorMessage}</Text>}
         {tweetsList}
       </ScrollView>

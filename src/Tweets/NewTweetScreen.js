@@ -32,16 +32,19 @@ export default function NewTweetScreen({ navigation }) {
   };
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       {errorMessage && <Text>{errorMessage}</Text>}
-      <TextInput
-        placeholder="Tweet"
-        multiline
-        value={tweet}
-        onChangeText={(content) => setTweet(content)}
-      />
-      <Button disabled={loading} title="Tweet!" onPress={handleSubmit} />
+      <View style={{ flex: 1 }}>
+        <TextInput
+          autoFocus
+          placeholder="Tweet"
+          multiline
+          value={tweet}
+          onChangeText={(content) => setTweet(content)}
+        />
+      </View>
       {loading && <ActivityIndicator />}
+      <Button disabled={loading} title="Tweet!" onPress={handleSubmit} />
     </View>
   );
 }

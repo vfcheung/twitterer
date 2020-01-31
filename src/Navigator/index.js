@@ -8,5 +8,12 @@ export default createAppContainer(
     Home: HomeScreen,
     Tweets: TweetsScreen,
     NewTweet: NewTweetScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      cardStyle: {
+        backgroundColor: '#eeeeee',
+      },
+    },
   }),
 );

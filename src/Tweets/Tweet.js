@@ -4,13 +4,21 @@ import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    marginTop: 10,
+    marginHorizontal: 10,
+    padding: 10,
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
   },
   contentContainer: {
     paddingTop: 20,
   },
+  timeText: {
+    fontSize: 11,
+  },
   userText: {
     fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
@@ -21,14 +29,14 @@ export default function Tweet({
   return (
     <View style={styles.container}>
       <View>
-        <View style={styles.detailsTextContainer}>
+        <View>
           <Text style={styles.userText}>
             {name}
           </Text>
-          <Text>
+          <Text style={styles.timeText}>
             {time}
           </Text>
-          <Text>
+          <Text style={styles.timeText}>
             {date}
           </Text>
         </View>

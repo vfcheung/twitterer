@@ -15,7 +15,6 @@ export default function HomeScreen({ navigation }) {
       <View style={{ flex: 1 }}>
         <TextInput
           autoFocus
-          autoCapitalize="none"
           placeholder="Enter your name"
           onChangeText={(name) => setUsername(name)}
           value={username}
